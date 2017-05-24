@@ -12,8 +12,8 @@ def talk(content, userId):
     data = json.dumps(d)
     r = s.post(url, data=data)
     text = json.loads(r.text)
-    if text['code'] == 10000:
+    if text['code'] == 100000:
         return text['text']
     else:
-        return '机器人失踪啦  ... ...  /n 请稍后再试'
+        return '机器人失踪啦  ... ...   请稍后再试'
 
