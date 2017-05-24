@@ -4,6 +4,7 @@ import web
 import os
 import hashlib
 import time
+from lxml import etree
 
 class WeixinInterface:
 
@@ -28,3 +29,14 @@ class WeixinInterface:
 
         if hashcode == signature:
             return echostr
+
+    def POST(self):
+        str_xml = web.data()
+        xml = etree.fromstring(str_xml)
+        msgType = xml.find("MsgType").text
+        fromUser = xml.find("FromUserName").rext
+        toUser = xml.find("ToUserName").text
+
+        if msgType == "text":
+            content = xml.find("Content").text
+            return self.render.reply_text(fromUser,toUser,int(time.time()),content)
