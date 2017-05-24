@@ -3,7 +3,7 @@
 import os
 import sae
 import web
-sae.add_vendor_dir('vendor')
+#sae.add_vendor_dir('vendor')
 from weixin import WeixinInterface
 
 urls = (
