@@ -46,5 +46,5 @@ class WeixinInterface:
             elif content == u'快递':
                 return self.render.reply_text(fromUser, toUser, int(time.time()), u'你好，查水表！')
             else:
-                text = talk(content,fromUser)
+                text = talk(content, fromUser)
                 return self.render.reply_text(fromUser, toUser, int(time.time()), text)
