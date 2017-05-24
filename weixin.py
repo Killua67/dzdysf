@@ -27,5 +27,4 @@ class WeixinInterface:
         hashcode = sha1.hexdigest()
 
         if hashcode == signature:
-            print '111111111'
             return echostr
