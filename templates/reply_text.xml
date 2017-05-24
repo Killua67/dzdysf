@@ -1,4 +1,4 @@
-$def with (toUser,fromUser,creatTime,context)
+$def with (toUser,fromUser,createTime,context)
 <xml>
     <ToUserName><![CDATA[$toUser]]></ToUserName>
     <FromUserName><![CDATA[$fromUser]]></FromUserName>
