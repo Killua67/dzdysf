@@ -40,7 +40,7 @@ class WeixinInterface:
         if msgType == "text":
             content = xml.find("Content").text
             if content == u"菜单":
-                menu = u'哈哈哈哈，欢迎关注。公众号里面有个机器人，还有声音识别和图片审美 ～';
+                menu = u'哈哈哈哈，欢迎关注。公众号里面有个机器人，还有声音识别和图片审美 ～'
                 return self.render.reply_text(fromUser, toUser, int(time.time()), menu)
             elif content == u'快递':
                 return self.render.reply_text(fromUser, toUser, int(time.time()), u'你好，查水表！')
