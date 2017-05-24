@@ -4,7 +4,7 @@ import web
 import os
 import hashlib
 import time
-from lxml import etree
+import lxml
 
 class WeixinInterface:
 
@@ -32,7 +32,7 @@ class WeixinInterface:
 
     def POST(self):
         str_xml = web.data()
-        xml = etree.fromstring(str_xml)
+        xml = lxml.etree.fromstring(str_xml)
         msgType = xml.find("MsgType").text
         fromUser = xml.find("FromUserName").rext
         toUser = xml.find("ToUserName").text
