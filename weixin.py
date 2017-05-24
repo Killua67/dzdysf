@@ -34,7 +34,7 @@ class WeixinInterface:
         str_xml = web.data()
         xml = etree.fromstring(str_xml)
         msgType = xml.find("MsgType").text
-        fromUser = xml.find("FromUserName").rext
+        fromUser = xml.find("FromUserName").text
         toUser = xml.find("ToUserName").text
 
         if msgType == "text":
