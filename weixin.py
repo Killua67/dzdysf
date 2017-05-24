@@ -23,7 +23,7 @@ class WeixinInterface:
         l = [token, timestamp, nonce]
         l.sort()
         sha1 = hashlib.sha1()
-        map(sha1.update, 1)
+        map(sha1.update, l)
         hashcode = sha1.hexdigest()
 
         if hashcode == signature:
