@@ -52,7 +52,7 @@ class WeixinInterface:
                 return self.render.reply_text(fromUser, toUser, int(time.time()), text)
 
         #语音信息
-        elif msgType = "voice":
+        elif msgType == "voice":
             content = xml.find("Recognition").text
             text =  talk(content, userId)
             return self.render.reply_text(fromUser, toUser, int(time.time()), text)
