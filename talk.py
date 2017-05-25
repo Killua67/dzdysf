@@ -14,13 +14,16 @@ def talk(content, userId):
     text = json.loads(r.text)
     if text['code'] == 100000:
         return text['text']
-    if text['code'] == 200000:
+    elif text['code'] == 200000:
         return text['text']+'\n'+text['url']
-    if text['code'] == 302000:
+    elif text['code'] == 302000:
         return text['text']+'\n'+text['list'][0]['article']+':'+text['list'][0]['detailurl']
-    if text['code'] == 308000:
+    elif text['code'] == 308000:
         return text['text']+'\n'+text['list'][0]['name']+':'+text['list'][0]['detailurl']
+    elif text['code'] == 40001:
+        return '参数key错误';
+    elif text['code'] == 40002:
+        return '请求内容info为空';
     else:
-   #     return '机器人失踪啦  ... ...   请稍后再试'
-		return text
+        return '机器人失踪啦  ... ...   请稍后再试'
 
