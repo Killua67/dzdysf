@@ -14,6 +14,12 @@ def talk(content, userId):
     text = json.loads(r.text)
     if text['code'] == 100000:
         return text['text']
+    if text['code'] == 200000:
+        return text['text']+'\n'+text['url']
+    if text['code'] == 302000:
+        return text['text']+'\n'+text['list'][0]['title']+':'+text['list'][0]['detailurl']
+    if text['code'] == 308000:
+        return text['text']+'\n'+text['url']
     else:
         return '机器人失踪啦  ... ...   请稍后再试'
 
