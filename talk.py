@@ -17,9 +17,9 @@ def talk(content, userId):
     if text['code'] == 200000:
         return text['text']+'\n'+text['url']
     if text['code'] == 302000:
-        return text['text']+'\n'+text['list'][0]['title']+':'+text['list'][0]['detailurl']
+        return text['text']+'\n'+text['list'][0]['article']+':'+text['list'][0]['detailurl']
     if text['code'] == 308000:
-        return text['text']+'\n'+text['list'][0]['title']+':'+text['list'][0]['detailurl']
+        return text['text']+'\n'+text['list'][0]['name']+':'+text['list'][0]['detailurl']
     else:
         return '机器人失踪啦  ... ...   请稍后再试'
 
