@@ -37,7 +37,9 @@ class WeixinInterface:
         msgType = xml.find("MsgType").text
         fromUser = xml.find("FromUserName").text
         toUser = xml.find("ToUserName").text
-
+		
+        userId = fromUser[0:15]
+        #文本信息
         if msgType == "text":
             content = xml.find("Content").text
             if content == u"菜单":
@@ -46,5 +48,16 @@ class WeixinInterface:
             elif content == u'快递':
                 return self.render.reply_text(fromUser, toUser, int(time.time()), u'你好，查水表！')
             else:
-                text = talk(content, fromUser[0:15])
+                text = talk(content, userId)
                 return self.render.reply_text(fromUser, toUser, int(time.time()), text)
+
+        #语音信息
+        elif msgType = "voice":
+            content = xml.find("Recognition").text
+            text =  talk(content, userId)
+            return self.render.reply_text(fromUser, toUser, int(time.time()), text)
+        
+        #图片信息
+        
+        else:
+            return ''
