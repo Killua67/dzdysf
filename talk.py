@@ -21,5 +21,6 @@ def talk(content, userId):
     if text['code'] == 308000:
         return text['text']+'\n'+text['list'][0]['name']+':'+text['list'][0]['detailurl']
     else:
-        return '机器人失踪啦  ... ...   请稍后再试'
+   #     return '机器人失踪啦  ... ...   请稍后再试'
+		return text
 
