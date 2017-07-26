@@ -15,15 +15,14 @@ def talk(content, userId):
     if text['code'] == 100000:
         return text['text']
     elif text['code'] == 200000:
-        return text['text']+'\n'+text['url']
+        return text['text'] + '\n' + text['url']
     elif text['code'] == 302000:
-        return text['text']+'\n'+text['list'][0]['article']+':'+text['list'][0]['detailurl']
+        return text['text'] + '\n' + text['list'][0]['article'] + ':' + text['list'][0]['detailurl']
     elif text['code'] == 308000:
-        return text['text']+'\n'+text['list'][0]['name']+':'+text['list'][0]['detailurl']
+        return text['text'] + '\n' + text['list'][0]['name'] + ':' + text['list'][0]['detailurl']
     elif text['code'] == 40001:
-        return '参数key错误';
+        return '参数key错误'
     elif text['code'] == 40002:
-        return '请求内容info为空';
+        return '请求内容info为空'
     else:
         return '机器人失踪啦  ... ...   请稍后再试'
-
