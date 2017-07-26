@@ -31,6 +31,7 @@ class WeixinInterface:
         if hashcode == signature:
             return echostr
 
+    @property
     def POST(self):
         str_xml = web.data()
         xml = etree.fromstring(str_xml)
@@ -59,7 +60,7 @@ class WeixinInterface:
         
         #图片信息
         elif msgType == 'image':
-            return self.render.reply_text(fromUser, toUser, int(time.time()),xml)
+            return self.render.reply_text(fromUser, toUser, int(time.time()),xml.find("PicUrl").text)
 
         else:
             return ''
