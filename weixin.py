@@ -37,7 +37,7 @@ class WeixinInterface:
         msgType = xml.find("MsgType").text
         fromUser = xml.find("FromUserName").text
         toUser = xml.find("ToUserName").text
-		
+
         userId = fromUser[0:15]
         #文本信息
         if msgType == "text":
@@ -58,6 +58,8 @@ class WeixinInterface:
             return self.render.reply_text(fromUser, toUser, int(time.time()), text)
         
         #图片信息
-        
+        elif msgType == 'image':
+            return self.render.reply_text(fromUser, toUser, int(time.time()),xml)
+
         else:
             return ''
