@@ -60,7 +60,7 @@ class WeixinInterface:
         
         #图片信息
         elif msgType == 'image':
-            return self.render.reply_text(fromUser, toUser, int(time.time()),xml.tag)
+            return self.render.reply_text(fromUser, toUser, int(time.time()),etree.tostring(xml))
 
         else:
             return ''
