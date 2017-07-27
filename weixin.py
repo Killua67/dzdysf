@@ -67,6 +67,6 @@ class WeixinInterface:
             # for i in content:
             #     j = json.loads(i)
             #     content += j['sex'] + '' + j['age']
-            return self.render.reply_text(fromUser, toUser, int(time.time()), content+result)
+            return self.render.reply_text(fromUser, toUser, int(time.time()), content)
         else:
             return ''
