@@ -60,7 +60,7 @@ class WeixinInterface:
                     text = 'error:' + text['text']
                 # else:
                 #     text = u'小冰消失啦，请稍后再试！'
-                return self.render.reply_text(fromUser, toUser, int(time.time()), text['text'])
+                return self.render.reply_text(fromUser, toUser, int(time.time()), text)
 
         #语音信息
         elif msgType == "voice":
