@@ -67,6 +67,7 @@ class xiaoiceApi():
             刷新直到获取到回答
         '''
         times = 1
+        result = 'No Post'
         while times:
             times += 1
             response = requests.get("http://weibo.com/aj/message/getbyid?ajwvr=6&uid=5175429989&count=1&_t=0",
@@ -75,9 +76,10 @@ class xiaoiceApi():
             soup = BeautifulSoup(response.json()['data']['html'], "lxml")
             text = soup.find("p", class_='page').text
             if text.encode("utf-8") != input_strs or times > 20:
+                result = text
                 break
             time.sleep(0.3)
-        return text
+        return result
 
     # def savePage(self, text, file):
     #     with open(file, "w") as f:
