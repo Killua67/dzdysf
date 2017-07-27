@@ -64,7 +64,7 @@ class WeixinInterface:
             result = img(picUrl)
             content = '图中识别出张人脸 /n'
             for i in content:
-                content += i['sex'] + '' + i['age']
+                content += i.get('sex') + '' + i.get('age')
             return self.render.reply_text(fromUser, toUser, int(time.time()), content)
         else:
             return ''
