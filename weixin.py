@@ -65,7 +65,7 @@ class WeixinInterface:
             result = img(picUrl)
             content = u'图中识别出 %d 张人脸 \n'%(len(result))
             for i in content:
-                j = json.loads(i,encoding='utf-8')
+                j = json.loads(i,encoding='ASCII')
                 return self.render.reply_text(fromUser, toUser, int(time.time()), j)
         else:
             return ''
