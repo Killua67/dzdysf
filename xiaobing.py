@@ -74,7 +74,7 @@ class xiaoiceApi():
             # self.savePage(response.text, "./tmpResponse.txt")
             soup = BeautifulSoup(response.json()['data']['html'], "lxml")
             text = soup.find("p", class_='page').text
-            if text.encode("utf-8") != input_strs or times > 20:
+            if text.encode("utf-8") == input_strs and times > 20:
                 break
             time.sleep(0.3)
         return text
