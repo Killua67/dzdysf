@@ -62,7 +62,7 @@ class WeixinInterface:
         elif msgType == 'image':
             picUrl = xml.find("PicUrl").text
             result = img(picUrl)
-            content = '图中识别出'+ len(result) +'张人脸 /n'
+            content = '图中识别出%d张人脸 /n',len(result)
             for i in content:
                 content += i.get('sex') + '' + i.get('age')
             return self.render.reply_text(fromUser, toUser, int(time.time()), content)
