@@ -85,4 +85,4 @@ class xiaoiceApi():
 
 # if __name__ == '__main__':
 #     xb = xiaoiceApi()
-#     print(xb.chat('所以就是你变了'))
+#     print(xb.chat('嗯啊'))
