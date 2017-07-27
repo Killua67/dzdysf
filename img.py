@@ -10,16 +10,19 @@ def img(url):
     url = 'https://www.how-old.net/Home/Analyze?isTest=False&source=&version=www.how-old.net'
 
     data = {'file': im}
-    r = requests.post(url, files=data).content.replace('\\', '')
-    gender = re.search(r'"gender": "(.*?)"rn', r)
-    age = re.search(r'"age": "(.*?)"rn', r)
-    if gender.group(1) == 'Male':
-        gender = '男'
-    else:
-        gender = '女'
+    r = requests.post(url, files=data)
+    r = r.text.replace('\\', '')
+    gender = re.findall('"gender": "(.*?)"', r)
+    age = re.findall('"age": (.*?),', r)
+    lists = zip(gender,age)
+    result = []
+    for i,j in lists:
+        if i == 'Male':
+            i = '男'
+        else:
+            i = '女'
+        result.append({'sex':i,"age":j})
 
-    datas = [gender, age.group(1)]
+    return result
 
-    return datas
-
-# print img('http://mmbiz.qpic.cn/mmbiz_jpg/hWWXn4JfVmhPHlMmKcpm8ScicEePezMicEYq7k3IHQIQJwPzCukmhb5Tib2icDEr09EgpyibeppaQdRo8gNDR8xnHAw/0')
+# print (img('http://mmbiz.qpic.cn/mmbiz_jpg/hWWXn4JfVmia8Giatv3h0Ge82jdbAjOFF962Laiasl7Pu2Sx3qibdQzqTFFnpnFYPwuCuMwXXia7eHs9zb0nibsaFM2g/0'))

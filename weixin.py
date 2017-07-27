@@ -6,6 +6,7 @@ import hashlib
 import time
 from lxml import etree
 from talk import talk
+from img import img
 
 class WeixinInterface:
 
@@ -59,6 +60,11 @@ class WeixinInterface:
         
         #图片信息
         elif msgType == 'image':
-            return self.render.reply_text(fromUser, toUser, int(time.time()), xml.find("PicUrl").text)
+            picUrl = xml.find("PicUrl").text
+            result = img(picUrl)
+            content = '图中识别出张人脸 /n'
+            for i in content:
+                content += i['sex'] + '' + i['age']
+            return self.render.reply_text(fromUser, toUser, int(time.time()), content)
         else:
             return ''
