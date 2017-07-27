@@ -64,9 +64,9 @@ class WeixinInterface:
             picUrl = xml.find("PicUrl").text
             result = img(picUrl)
             content = u'图中识别出 %d 张人脸 \n'%(len(result))
-            # for i in content:
-            #     j = json.loads(i)
-            #     content += j['sex'] + '' + j['age']
+            for i in content:
+                j = json.loads(i)
+                content += j['sex'] + '' + j['age']
             return self.render.reply_text(fromUser, toUser, int(time.time()), content)
         else:
             return ''
