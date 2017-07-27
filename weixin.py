@@ -67,6 +67,6 @@ class WeixinInterface:
             for i in content:
                 j = i.encode("utf-8")
                 content += j
-                return self.render.reply_text(fromUser, toUser, int(time.time()), content)
+            return self.render.reply_text(fromUser, toUser, int(time.time()), content)
         else:
             return ''
