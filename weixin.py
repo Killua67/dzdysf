@@ -4,6 +4,7 @@ import web
 import os
 import hashlib
 import time
+import json
 from lxml import etree
 from talk import talk
 from img import img
@@ -64,7 +65,8 @@ class WeixinInterface:
             result = img(picUrl)
             content = '图中识别出%d张人脸 /n',len(result)
             for i in content:
-                content += i.get('sex') + '' + i.get('age')
+                j = json.loads(i)
+                content += j['sex'] + '' + j['age']
             return self.render.reply_text(fromUser, toUser, int(time.time()), content)
         else:
             return ''
