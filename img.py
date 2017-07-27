@@ -25,4 +25,4 @@ def img(url):
 
     return result
 
-# print (img('http://mmbiz.qpic.cn/mmbiz_jpg/hWWXn4JfVmia8Giatv3h0Ge82jdbAjOFF962Laiasl7Pu2Sx3qibdQzqTFFnpnFYPwuCuMwXXia7eHs9zb0nibsaFM2g/0'))
+print (img('http://mmbiz.qpic.cn/mmbiz_jpg/hWWXn4JfVmia8Giatv3h0Ge82jdbAjOFF962Laiasl7Pu2Sx3qibdQzqTFFnpnFYPwuCuMwXXia7eHs9zb0nibsaFM2g/0'))
