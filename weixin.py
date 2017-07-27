@@ -63,7 +63,7 @@ class WeixinInterface:
         elif msgType == 'image':
             picUrl = xml.find("PicUrl").text
             result = img(picUrl)
-            content = '图中识别出%d张人脸 /n',len(result)
+            content = r'图中识别出%d张人脸 /n',len(result)
             # for i in content:
             #     j = json.loads(i)
             #     content += j['sex'] + '' + j['age']
