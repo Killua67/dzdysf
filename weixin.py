@@ -52,7 +52,8 @@ class WeixinInterface:
                 return self.render.reply_text(fromUser, toUser, int(time.time()), u'你好，查水表！')
             else:
                 # text = talk(content, userId)
-                text = xiaobing.xiaoiceApi.chat(content)
+                xb = xiaobing.xiaoiceApi()
+                text = xb.chat(content)
                 return self.render.reply_text(fromUser, toUser, int(time.time()), text)
 
         #语音信息
