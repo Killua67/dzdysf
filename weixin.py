@@ -58,9 +58,9 @@ class WeixinInterface:
                     text = text['text']
                 elif text['status'] == 'failed':
                     text = 'error:' + text['text']
-                else:
-                    text = u'小冰消失啦，请稍后再试！'
-                return self.render.reply_text(fromUser, toUser, int(time.time()), text)
+                # else:
+                #     text = u'小冰消失啦，请稍后再试！'
+                return self.render.reply_text(fromUser, toUser, int(time.time()), text['text'])
 
         #语音信息
         elif msgType == "voice":
