@@ -47,7 +47,7 @@ class xiaoiceApi():
         try:
             url = 'http://weibo.com/aj/message/add?ajwvr=6'
             page = requests.post(url, data=data, headers=self.headers)
-            self.savePage(page.text, "./tmpPostPage.txt")
+            # self.savePage(page.text, "./tmpPostPage.txt")
             if page.json()['code'] == '100000':
                 text = self.loop(input_strs)
                 return self.dicts("succeed", text)
@@ -71,7 +71,7 @@ class xiaoiceApi():
             times += 1
             response = requests.get("http://weibo.com/aj/message/getbyid?ajwvr=6&uid=5175429989&count=1&_t=0",
                                     headers=self.headers)
-            self.savePage(response.text, "./tmpResponse.txt")
+            # self.savePage(response.text, "./tmpResponse.txt")
             soup = BeautifulSoup(response.json()['data']['html'], "lxml")
             text = soup.find("p", class_='page').text
             if text.encode("utf-8") != input_strs or times > 20:
@@ -79,9 +79,9 @@ class xiaoiceApi():
             time.sleep(0.3)
         return text
 
-    def savePage(self, text, file):
-        with open(file, "w") as f:
-            f.write(text)
+    # def savePage(self, text, file):
+    #     with open(file, "w") as f:
+    #         f.write(text)
 
 # if __name__ == '__main__':
 #     xb = xiaoiceApi()
