@@ -8,6 +8,7 @@ import json
 from lxml import etree
 from talk import talk
 from img import img
+import xiaobing
 
 class WeixinInterface:
 
@@ -50,7 +51,8 @@ class WeixinInterface:
             elif content == u'快递':
                 return self.render.reply_text(fromUser, toUser, int(time.time()), u'你好，查水表！')
             else:
-                text = talk(content, userId)
+                # text = talk(content, userId)
+                text = xiaobing.xiaoiceApi.chat(content)
                 return self.render.reply_text(fromUser, toUser, int(time.time()), text)
 
         #语音信息
