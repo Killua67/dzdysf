@@ -18,9 +18,9 @@ def img(url):
     result = []
     for i,j in lists:
         if i == 'Male':
-            i = '男'
+            i = u'男'
         else:
-            i = '女'
+            i = u'女'
         result.append({'sex':i,"age":j})
 
     return result
