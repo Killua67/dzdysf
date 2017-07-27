@@ -66,7 +66,7 @@ class WeixinInterface:
             content = u'图中识别出 %d 张人脸 \n'%(len(result))
             for i in content:
                 j = i.encode("utf-8")
-                content += j['sex'] + ' ' + j['age'] + u'岁'
+                content += j
                 return self.render.reply_text(fromUser, toUser, int(time.time()), content)
         else:
             return ''
