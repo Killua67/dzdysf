@@ -52,6 +52,7 @@ class WeixinInterface:
                 return self.render.reply_text(fromUser, toUser, int(time.time()), u'你好，查水表！')
             else:
                 text = talk(content, userId)
+
                 # xb = xiaobing.xiaoiceApi()
                 # text = xb.chat(content)
                 # if text['status'] == 'succeed':
