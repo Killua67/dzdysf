@@ -51,13 +51,13 @@ class WeixinInterface:
             elif content == u'快递':
                 return self.render.reply_text(fromUser, toUser, int(time.time()), u'你好，查水表！')
             else:
-                # text = talk(content, userId)
-                xb = xiaobing.xiaoiceApi()
-                text = xb.chat(content)
-                if text['status'] == 'succeed':
-                    text = text['text']
-                elif text['status'] == 'failed':
-                    text = 'error:' + text['text']
+                text = talk(content, userId)
+                # xb = xiaobing.xiaoiceApi()
+                # text = xb.chat(content)
+                # if text['status'] == 'succeed':
+                #     text = text['text']
+                # elif text['status'] == 'failed':
+                #     text = 'error:' + text['text']
                 # else:
                 #     text = u'小冰消失啦，请稍后再试！'
                 return self.render.reply_text(fromUser, toUser, int(time.time()), text)
